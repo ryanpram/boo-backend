@@ -1,15 +1,15 @@
 # Boo Backend Coding Test
 ## How to Run
 * Clone the project
-  ```javascript
+  ```bash
   git clone https://github.com/ryanpram/boo-backend.git
   ```
 * Install node dependencies
-  ```javascript
+  ```bash
   npm install
   ```
 * Install node dependencies
-  ```javascript
+  ```bash
   npm start
   ```
 
