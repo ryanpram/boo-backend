@@ -44,8 +44,10 @@ const addProfile = async (req, res) => {
       psyche: data.psyche,
       image: data.image,
     });
-    await profile.save();
-    return res.status(201).json({ message: "Added profile sucessfully!" });
+    const createdProfile = await profile.save();
+    return res
+      .status(201)
+      .json({ message: "Added profile sucessfully!", data: createdProfile });
   } catch (error) {
     res.status(500).json({ error });
   }

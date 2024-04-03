@@ -27,7 +27,9 @@ const likeUnlikeComment = async (req, res) => {
     await comment.save();
     return res.status(200).json({
       message: "Updated comment's like sucessfully!",
-      likeCount: comment.likes.length,
+      data: {
+        likeCount: comment.likes.length,
+      },
     });
   } catch (error) {
     console.log("err", error);
@@ -56,8 +58,10 @@ const postComment = async (req, res) => {
       zodiacVote,
     });
 
-    await comment.save();
-    return res.status(201).json({ message: "Added comment sucessfully!" });
+    const createdComment = await comment.save();
+    return res
+      .status(201)
+      .json({ message: "Added comment sucessfully!", data: createdComment });
   } catch (error) {
     res.status(500).json({ error });
   }
