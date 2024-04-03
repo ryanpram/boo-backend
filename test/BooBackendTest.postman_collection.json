@@ -1,0 +1,745 @@
+{
+	"info": {
+		"_postman_id": "de74dd74-e56d-43d7-a0b1-174fe2bf90cf",
+		"name": "Boo BE Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2383292"
+	},
+	"item": [
+		{
+			"name": "Add First Profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response has a message property with correct displayed message value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Added profile sucessfully!');",
+							"});",
+							"",
+							"pm.test(\"Response has contain the created comment data\", function () {",
+							"    const expectedObject = {",
+							"        \"name\": \"Cristiano Ronaldo\",",
+							"        \"description\": \"Al-Nassr's Football Player\",",
+							"        \"mbti\": \"ESFJ\",",
+							"        \"enneagram\": \"9w3\",",
+							"        \"variant\": \"sp/so\",",
+							"        \"tritype\": 7254,",
+							"        \"socionics\": \"SAR\",",
+							"        \"sloan\": \"RCOEN\",",
+							"        \"psyche\": \"FEVL\",",
+							"        \"image\": \"https://soulverse.boo.world/images/1.png\"",
+							"    }",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.deep.include(expectedObject);",
+							"});",
+							"",
+							"// set environtment variable for next use",
+							"const responseData = pm.response.json();",
+							"pm.environment.set(\"firstProfileId\",responseData.data._id)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Cristiano Ronaldo\",\n  \"description\": \"Al-Nassr's Football Player\",\n  \"mbti\": \"ESFJ\",\n  \"enneagram\": \"9w3\",\n  \"variant\": \"sp/so\",\n  \"tritype\": \"7254\",\n  \"socionics\": \"SAR\",\n  \"sloan\": \"RCOEN\",\n  \"psyche\": \"FEVL\",\n  \"image\": \"https://soulverse.boo.world/images/1.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/profiles/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Second Profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response has a message property with correct displayed message value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Added profile sucessfully!');",
+							"});",
+							"",
+							"pm.test(\"Response has contain the created comment data\", function () {",
+							"    const expectedObject = {",
+							"        \"name\": \"Lionel Messi\",",
+							"        \"description\": \"Inter Miami's Football Player\",",
+							"        \"mbti\": \"INFP\",",
+							"        \"enneagram\": \"9w8\",",
+							"        \"variant\": \"sp/so\",",
+							"        \"tritype\": 7254,",
+							"        \"socionics\": \"SAR\",",
+							"        \"sloan\": \"RCOEN\",",
+							"        \"psyche\": \"FEVL\",",
+							"        \"image\": \"https://soulverse.boo.world/images/1.png\"",
+							"    }",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.deep.include(expectedObject);",
+							"});",
+							"",
+							"// set environtment variable for next use",
+							"const responseData = pm.response.json();",
+							"pm.environment.set(\"secondProfileId\",responseData.data._id)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Lionel Messi\",\n  \"description\": \"Inter Miami's Football Player\",\n  \"mbti\": \"INFP\",\n  \"enneagram\": \"9w8\",\n  \"variant\": \"sp/so\",\n  \"tritype\": \"7254\",\n  \"socionics\": \"SAR\",\n  \"sloan\": \"RCOEN\",\n  \"psyche\": \"FEVL\",\n  \"image\": \"https://soulverse.boo.world/images/1.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/profiles/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Third Profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response has a message property with correct displayed message value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Added profile sucessfully!');",
+							"});",
+							"",
+							"pm.test(\"Response has contain the created comment data\", function () {",
+							"    const expectedObject = {",
+							"        \"name\": \"Bruno Fernandes\",",
+							"        \"description\": \"Manchester United's Football Player\",",
+							"        \"mbti\": \"ESTP\",",
+							"        \"enneagram\": \"9w8\",",
+							"        \"variant\": \"sp/so\",",
+							"        \"tritype\": 7254,",
+							"        \"socionics\": \"SAR\",",
+							"        \"sloan\": \"RCOEN\",",
+							"        \"psyche\": \"FEVL\",",
+							"        \"image\": \"https://soulverse.boo.world/images/1.png\"",
+							"    }",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.deep.include(expectedObject);",
+							"});",
+							"",
+							"// set environtment variable for next use",
+							"const responseData = pm.response.json();",
+							"pm.environment.set(\"thirdProfileId\",responseData.data._id)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Bruno Fernandes\",\n  \"description\": \"Manchester United's Football Player\",\n  \"mbti\": \"ESTP\",\n  \"enneagram\": \"9w8\",\n  \"variant\": \"sp/so\",\n  \"tritype\": \"7254\",\n  \"socionics\": \"SAR\",\n  \"sloan\": \"RCOEN\",\n  \"psyche\": \"FEVL\",\n  \"image\": \"https://soulverse.boo.world/images/1.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/profiles/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Profiles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response is in array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.a('array')",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/profiles/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is HTML\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\", \"text/html; charset=utf-8\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/profiles/{{firstProfileId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						"{{firstProfileId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post First Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response has a message property with correct displayed message value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Added comment sucessfully!');",
+							"});",
+							"",
+							"pm.test(\"Response has contain the created comment data\", function () {",
+							"    const expectedObject = {",
+							"        profile: pm.environment.get(\"firstProfileId\"), ",
+							"        author: pm.environment.get(\"secondProfileId\"),",
+							"        text: \"Comment from second profile (user) to first profile\",",
+							"        mbtiVote: \"ISFP\",",
+							"        enneagramVote: \"8w9\",",
+							"        zodiacVote: \"Aquarius\"",
+							"    }",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.deep.include(expectedObject);",
+							"});",
+							"",
+							"",
+							"// set environtment variable for next use",
+							"const responseData = pm.response.json();",
+							"pm.environment.set(\"firstCommentId\",responseData.data._id)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"profileId\": \"{{firstProfileId}}\", \n  \"authorProfileId\": \"{{secondProfileId}}\",\n  \"text\": \"Comment from second profile (user) to first profile\",\n  \"mbtiVote\": \"ISFP\",\n  \"enneagramVote\": \"8w9\",\n  \"zodiacVote\": \"Aquarius\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/comments/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Second Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response has a message property with correct displayed message value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Added comment sucessfully!');",
+							"});",
+							"",
+							"pm.test(\"Response has contain the created comment data\", function () {",
+							"    const expectedObject = {",
+							"        profile: pm.environment.get(\"firstProfileId\"), ",
+							"        author: pm.environment.get(\"thirdProfileId\"),",
+							"        text: \"Comment from third profile (user) to first profile\",",
+							"        mbtiVote: \"ENFJ\",",
+							"        enneagramVote: \"8w9\",",
+							"        zodiacVote: \"Capricorn\"",
+							"    }",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.deep.include(expectedObject);",
+							"});",
+							"",
+							"",
+							"",
+							"// set environtment variable for next use",
+							"const responseData = pm.response.json();",
+							"pm.environment.set(\"secondCommentId\",responseData.data._id)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"profileId\": \"{{firstProfileId}}\", \n  \"authorProfileId\": \"{{thirdProfileId}}\",\n  \"text\": \"Comment from third profile (user) to first profile\",\n  \"mbtiVote\": \"ENFJ\",\n  \"enneagramVote\": \"8w9\",\n  \"zodiacVote\": \"Capricorn\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/comments/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like First Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response has a message property with correct displayed message value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('Updated comment\\'s like sucessfully!');",
+							"});",
+							"",
+							"pm.test(\"Response has contain the like count property\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.have.property(\"likeCount\");",
+							"    pm.expect(jsonData.data.likeCount).to.be.a(\"number\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"likeProfileId\" : \"{{firstProfileId}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/comments/{{firstCommentId}}/like",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comments",
+						"{{firstCommentId}}",
+						"like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile's Comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response is in array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.a('array')",
+							"});",
+							"",
+							"pm.test(\"Response has contain object of comment data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(comment) {",
+							"        pm.expect(comment).to.have.property('_id');",
+							"        pm.expect(comment).to.have.property('profile');",
+							"        pm.expect(comment).to.have.property('author');",
+							"        pm.expect(comment).to.have.property('text');",
+							"        pm.expect(comment).to.have.property('likes');",
+							"        pm.expect(comment).to.have.property('mbtiVote');",
+							"        pm.expect(comment).to.have.property('enneagramVote');",
+							"        pm.expect(comment).to.have.property('zodiacVote');",
+							"        pm.expect(comment).to.have.property('createdAt');",
+							"        pm.expect(comment).to.have.property('updatedAt');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/profiles/{{firstProfileId}}/comments",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						"{{firstProfileId}}",
+						"comments"
+					],
+					"query": [
+						{
+							"key": "filterBy[mbti]",
+							"value": "ISFP",
+							"disabled": true
+						},
+						{
+							"key": "filterBy[enneagram]",
+							"value": "4w5",
+							"disabled": true
+						},
+						{
+							"key": "filterBy[zodiac]",
+							"value": "Aquarius",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "likes",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sort Profile's Comments By likes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response is in array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.a('array')",
+							"});",
+							"",
+							"pm.test(\"Response has contain object of comment data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(comment) {",
+							"        pm.expect(comment).to.have.property('_id');",
+							"        pm.expect(comment).to.have.property('profile');",
+							"        pm.expect(comment).to.have.property('author');",
+							"        pm.expect(comment).to.have.property('text');",
+							"        pm.expect(comment).to.have.property('likes');",
+							"        pm.expect(comment).to.have.property('mbtiVote');",
+							"        pm.expect(comment).to.have.property('enneagramVote');",
+							"        pm.expect(comment).to.have.property('zodiacVote');",
+							"        pm.expect(comment).to.have.property('createdAt');",
+							"        pm.expect(comment).to.have.property('updatedAt');",
+							"    });",
+							"});",
+							"",
+							"pm.test(\"The response data should be returned in order based on the highest number of likes.\", function () {   ",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].likes.length).to.be.at.least(jsonData[1].likes.length)",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/profiles/{{firstProfileId}}/comments?sort=likes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						"{{firstProfileId}}",
+						"comments"
+					],
+					"query": [
+						{
+							"key": "filterBy[mbti]",
+							"value": "ISFP",
+							"disabled": true
+						},
+						{
+							"key": "filterBy[enneagram]",
+							"value": "4w5",
+							"disabled": true
+						},
+						{
+							"key": "filterBy[zodiac]",
+							"value": "Aquarius",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "likes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Profile's Comments By MBTI Vote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a JSON body\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response is in array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.a('array')",
+							"});",
+							"",
+							"pm.test(\"Response has contain object of comment data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(comment) {",
+							"        pm.expect(comment).to.have.property('_id');",
+							"        pm.expect(comment).to.have.property('profile');",
+							"        pm.expect(comment).to.have.property('author');",
+							"        pm.expect(comment).to.have.property('text');",
+							"        pm.expect(comment).to.have.property('likes');",
+							"        pm.expect(comment).to.have.property('mbtiVote');",
+							"        pm.expect(comment).to.have.property('enneagramVote');",
+							"        pm.expect(comment).to.have.property('zodiacVote');",
+							"        pm.expect(comment).to.have.property('createdAt');",
+							"        pm.expect(comment).to.have.property('updatedAt');",
+							"    });",
+							"});",
+							"",
+							"pm.test(\"The response data should only include comments that have an MBTI vote equal to ISFP.\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(comment) {",
+							"        pm.expect(comment.mbtiVote).to.equal('ISFP');",
+							"    });",
+							"",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/profiles/{{firstProfileId}}/comments?filterBy[mbti]=ISFP&sort=likes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profiles",
+						"{{firstProfileId}}",
+						"comments"
+					],
+					"query": [
+						{
+							"key": "filterBy[mbti]",
+							"value": "ISFP"
+						},
+						{
+							"key": "filterBy[enneagram]",
+							"value": "4w5",
+							"disabled": true
+						},
+						{
+							"key": "filterBy[zodiac]",
+							"value": "Aquarius",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "likes"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
