@@ -1,10 +1,15 @@
 # Boo Backend Coding Test
 ## How to Run
-* clone the project
+* Clone the project
   ```javascript
-  git clone
+  git clone https://github.com/ryanpram/boo-backend.git
   ```
-* tensorflow: 2.9.1
-* tflite_runtime: 2.14.0
-* keras_image_helper: 0.0.1
+* Install node dependencies
+  ```javascript
+  npm install
+  ```
+* Install node dependencies
+  ```javascript
+  npm start
+  ```
 
