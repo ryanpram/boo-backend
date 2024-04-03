@@ -29,7 +29,8 @@
 
 *  Select "BooBackendTest" as active environtments
 
-![Screenshot 2024-04-03 at 22 48 26](https://github.com/ryanpram/boo-backend/assets/34083758/56f0d867-cc09-4476-8ed8-d50feb39692c)
+![Screenshot 2024-04-03 at 22 50 23](https://github.com/ryanpram/boo-backend/assets/34083758/9f2e3dfc-9d6a-4245-b85d-1e7567f41213)
+
 
 *  Select "Collections" tab again,  select the "BooBackendTest", click the tree dots, click "Run collection"
 ![Screenshot 2024-04-03 at 22 53 20](https://github.com/ryanpram/boo-backend/assets/34083758/5726588e-2b6f-4a89-9f6d-1204d20c1116)
@@ -37,7 +38,7 @@
 *  It will navigate you to Postmant collection runner page, select "Run manually", and then click "Run Boo BE Test". After it post should automatically run the test api script
 ![Screenshot 2024-04-03 at 22 54 06](https://github.com/ryanpram/boo-backend/assets/34083758/bff78b99-823d-4044-a511-8c8f97fccd3f)
 
-*  After the test script finish to run, it will show the result page like below
+*  After the test script finished to run, it will show the result page like below
 ![Screenshot 2024-04-03 at 22 54 45](https://github.com/ryanpram/boo-backend/assets/34083758/4e18f775-fece-4b1a-8064-d16939ae4f75)
 
 
